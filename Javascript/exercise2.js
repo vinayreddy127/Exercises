@@ -4,13 +4,13 @@
 //14. Write a function that accepts another function and calls the accepted function.
 
 
-function g(x){
+function g(x) {
     console.log("in g");
     console.log(x);
     x();
 }
 
-g(function(){
+g(function () {
     console.log("no name function");
 });
 
@@ -27,20 +27,20 @@ g(function(){
 //console.log( sum( 2, 3, cube ) ); // prints 35
 //```
 
-let sum = (x,y,callback)=>{
+let sum = (x, y, callback) => {
     return callback(x) + callback(y);
 }
 
-function square(x){
-    return x*x;
+function square(x) {
+    return x * x;
 }
 
-function cube(x){
-    return x*x*x;
+function cube(x) {
+    return x * x * x;
 }
 
-console.log(sum(2,3,square));
-console.log(sum(2,3,cube));
+console.log(sum(2, 3, square));
+console.log(sum(2, 3, cube));
 
 
 //Q16
@@ -50,29 +50,29 @@ console.log(sum(2,3,cube));
 //console.log( sumArray( [ 1, 2, 3 ], cube ) ); // prints 36
 //```
 
-sumArray = (arr, callback)=>{
+sumArray = (arr, callback) => {
     return callback(arr);
 }
 
 
-function squareSum(arr){
+function squareSum(arr) {
     let s = 0;
-    for(let i =0;i<arr.length;i++){
+    for (let i = 0; i < arr.length; i++) {
         s = s + arr[i] * arr[i];
     }
     return s;
 }
 
-function cubeSum(arr){
-    let s =0;
-    for(let i =0;i<arr.length;i++){
+function cubeSum(arr) {
+    let s = 0;
+    for (let i = 0; i < arr.length; i++) {
         s = s + arr[i] * arr[i] * arr[i];
     }
     return s;
 }
 
-console.log(sumArray([1,2,3],squareSum));
-console.log(sumArray([1,2,3],cubeSum));
+console.log(sumArray([1, 2, 3], squareSum));
+console.log(sumArray([1, 2, 3], cubeSum));
 
 //Q17
 //17. Write a function _exponentFactory_ that accepts a number, say x. Define 2 functions _square_ and _cube_ within it (which accept a number each, and return the square and cube respectively). If x is 2, exponentFactory returns the square function, if 3 it returns the cube function. For any other input it returns a function that returns the number it accepts as such. Call the exponentFactory() function and then the returned function, and log the result.  
@@ -91,11 +91,11 @@ console.log(sumArray([1,2,3],cubeSum));
 //```
 
 
-let exponentFactory = (x)=>{
-    let power = (y)=>{
-        let a=1;
-        for(let i=1;i<=x;i++){
-            a = a*y;
+let exponentFactory = (x) => {
+    let power = (y) => {
+        let a = 1;
+        for (let i = 1; i <= x; i++) {
+            a = a * y;
         }
         return a;
     }
@@ -119,8 +119,8 @@ console.log(fn(5));
 //console.log( addTo20( 7 ) ); // prints 27
 //```
 
-let addTo = (x)=>{
-    let addAgain = (y)=>{
+let addTo = (x) => {
+    let addAgain = (y) => {
         return x + y;
     }
     return addAgain;
@@ -135,13 +135,13 @@ console.log(fn2(7));
 
 let movie = {
     name: "Figth Club",
-    cast:["Edward Norton", "Brad Pitt" , "Helena Bonham Carter"],
-    yearOfRelease: 1999 , 
-    boxOfficeCollection: 1000000 , 
-    addToCast: function(newMember){
+    cast: ["Edward Norton", "Brad Pitt", "Helena Bonham Carter"],
+    yearOfRelease: 1999,
+    boxOfficeCollection: 1000000,
+    addToCast: function (newMember) {
         this.cast.push(newMember);
     },
-    addToCollection: function(amount){
+    addToCollection: function (amount) {
         this.boxOfficeCollection += amount;
     }
 }
