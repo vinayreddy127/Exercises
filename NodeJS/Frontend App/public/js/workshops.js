@@ -1,11 +1,11 @@
 "use strict";
-fetch("https://workshops-server.herokuapp.com/workshops").
+fetch("https://articles-server.herokuapp.com/articles").
     then(function (response) {
     return response.json();
-}).then(function (workshops) {
-    console.log(workshops);
+}).then(function (articles) {
+    console.log(articles);
     var tbody = document.querySelector("tbody");
-    workshops.forEach(function (workshop) {
-        tbody.innerHTML += "<tr>\n                                <td>\n                                    <img class= \"thumbnail\"src=\"" + workshop.imageUrl + "\" alt=\"\">\n                                </td>\n                                <td>" + workshop.name + "</td>\n                                <td>" + workshop.location.city + "</td>\n                                <td>" + workshop.description + "</td>\n                            </tr>";
+    articles.forEach(function (article) {
+        tbody.innerHTML += "<tr>\n                                <td>\n                                    <img class= \"thumbnail\"src=\"" + article.imageUrl + "\" alt=\"\">\n                                </td>\n                                <td>" + article.name + "</td>\n                                <td>" + article.location.city + "</td>\n                                <td>" + article.description + "</td>\n                            </tr>";
     });
 }).catch(function (error) { return console.log(error); });

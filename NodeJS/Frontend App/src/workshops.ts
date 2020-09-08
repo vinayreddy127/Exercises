@@ -1,17 +1,17 @@
-fetch("https://workshops-server.herokuapp.com/workshops").
+fetch("https://articles-server.herokuapp.com/articles").
 then(function(response){
     return response.json();
-}).then(function(workshops){
-    console.log(workshops);
+}).then(function(articles){
+    console.log(articles);
     const tbody = <HTMLElement>document.querySelector("tbody");
-    workshops.forEach((workshop: { imageUrl: any; name: any; location: { city: any; }; description: any; }) => {
+    articles.forEach((article: { imageUrl: any; name: any; location: { city: any; }; description: any; }) => {
         tbody.innerHTML += `<tr>
                                 <td>
-                                    <img class= "thumbnail"src="${workshop.imageUrl}" alt="">
+                                    <img class= "thumbnail"src="${article.imageUrl}" alt="">
                                 </td>
-                                <td>${workshop.name}</td>
-                                <td>${workshop.location.city}</td>
-                                <td>${workshop.description}</td>
+                                <td>${article.name}</td>
+                                <td>${article.location.city}</td>
+                                <td>${article.description}</td>
                             </tr>`
     });
 }).catch(error=>console.log(error));
